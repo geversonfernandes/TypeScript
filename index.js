@@ -37,9 +37,16 @@ class BooleanValidator extends Validator {
         }
     }
 }
+<<<<<<< HEAD
 // const test1 = new StringValidator("Testando String.");
 // const test2 = new NumberValidator(10);
 // const test3 = new BooleanValidator("Forçando Erro.");
+=======
+const test1 = new StringValidator("Testando String.");
+const test2 = new NumberValidator(10);
+const test3 = new BooleanValidator("Forçando Erro.");
+
+>>>>>>> 9634edb37fb32b45811aafa1e78c5c1b5c0bb289
 class EmailInput extends HTMLElement {
     constructor() {
         super();
