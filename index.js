@@ -37,15 +37,31 @@ class BooleanValidator extends Validator {
         }
     }
 }
-const test1 = new StringValidator("Testando String.");
-const test2 = new NumberValidator(10);
-const test3 = new BooleanValidator("Forçando Erro.");
+// const test1 = new StringValidator("Testando String.");
+// const test2 = new NumberValidator(10);
+// const test3 = new BooleanValidator("Forçando Erro.");
 class EmailInput extends HTMLElement {
     constructor() {
         super();
-        this.input = document.createElement('input');
-        this.root = document.createElement('div').appendChild(this.input);
-        this.shadow = this.attachShadow({ mode: 'open' }).appendChild(this.root);
+        const shadow = this.attachShadow({ mode: 'open' });
+        const input = document.createElement('input');
+        shadow.appendChild(input);
+        input.setAttribute('id', 'inputUser');
+        input.addEventListener('change', () => {
+            const inputUser = shadow.getElementById('inputUser');
+            new RegexValidator(inputUser.value);
+        });
     }
 }
 customElements.define('email-input', EmailInput);
+class RegexValidator extends StringValidator {
+    constructor(data) {
+        super(data);
+        this.re = new RegExp(/^(\w{1,}@\w{1,}\.(\w{3})(\.\w{2}){0,1})$/gim);
+        if (this.re.test(data)) {
+            console.log('Formato correto');
+        }
+        else
+            throw new Error("O formato está errado");
+    }
+}
