@@ -40,6 +40,7 @@ class BooleanValidator extends Validator {
 const test1 = new StringValidator("Testando String.");
 const test2 = new NumberValidator(10);
 const test3 = new BooleanValidator("Forçando Erro.");
+
 class EmailInput extends HTMLElement {
     constructor() {
         super();
