@@ -51,8 +51,7 @@ class EmailInput extends HTMLElement{
         shadow.appendChild(input)
         input.setAttribute('id', 'inputUser')
         input.addEventListener('change', () => {
-            const inputUser = <HTMLInputElement>shadow.getElementById('inputUser')
-            new RegexValidator(inputUser.value)
+            new RegexValidator(input.value)
         })
     }
 }
